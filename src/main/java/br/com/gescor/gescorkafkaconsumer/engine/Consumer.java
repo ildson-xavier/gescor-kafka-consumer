@@ -8,17 +8,20 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Service;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
+import br.com.gescor.gescorkafkaconsumer.service.GescorService;
 
 @Service
 public class Consumer {
 
 	private final Logger logger = LoggerFactory.getLogger(Consumer.class);
-    @Autowired
-    private final ObjectMapper mapper = new ObjectMapper();
+	
+	@Autowired
+	private GescorService service;
 
     @KafkaListener(topics = "users", groupId = "group_id")
     public void consume(String message) throws IOException {
         logger.info(String.format("#### -> Consumed message -> %s", message));
+        
+        this.service.sendJsonKafka(message);
     }
 }
