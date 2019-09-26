@@ -1,9 +1,4 @@
-package br.com.gescor.gescorkafka.config;
-
-import java.io.File;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
+package br.com.gescor.gescorkafkaconsumer.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -19,7 +14,7 @@ import br.com.gescor.gescorkafkaconsumer.model.Parameter;
 
 @Component
 @Configuration
-@ComponentScan(basePackages = { "br.com.gescor.gescorkafka.*" })
+@ComponentScan(basePackages = { "br.com.gescor.gescorkafkaconsumer.*" })
 @EnableTransactionManagement
 @PropertySource({ "classpath:parameters.properties" })
 public class BeanConfig {

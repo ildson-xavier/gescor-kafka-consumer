@@ -23,5 +23,7 @@ public class Consumer {
         logger.info(String.format("#### -> Consumed message -> %s", message));
         
         this.service.sendJsonKafka(message);
+        
+        logger.info(String.format("#### -> sendJsonKafka > %s", message));
     }
 }
